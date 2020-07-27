@@ -4,7 +4,9 @@
     <v-main> 
       <Slideshow :imgs="[logo, carRender, window, profile, fiberGlass]"/> 
       <About/>
-      <ImageDisplayer :imgSrc="profile" :displayHeight="500" headerTxt="Header Text" txt="Other Text"/>
+      <ImageDisplayer :imgSrc="profile" :displayHeight="300" headerTxt="Header Text" txt="Other Text"/>
+      <br>
+      <ImageDisplayer :imgSrc="window" headerTxt="No displayHeight set" txt="Defaults to 500"/>
       <Competitions/>
       <Donate/>
       <Contact/>
