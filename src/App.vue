@@ -2,18 +2,19 @@
   <v-app>
     <Menu/>
     <v-main> 
-      <Slideshow :imgs="[logo, carRender, window, profile, fiberGlass]"/> 
-      <About id="idAbout"/>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <ImageDisplayer :imgSrc="profile" :displayHeight="300" headerTxt="Header Text" txt="Other Text"/>
-      <br>
-      <ImageDisplayer :imgSrc="window" headerTxt="No displayHeight set" txt="Defaults to 500"/>
-      <Competitions id="idCompetitions"/>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <Donate id="idDonate"/>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-      <Contact id="idContact"/>
-      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+		<Slideshow :imgs="[logo, carRender, window, profile, fiberGlass]"/> 
+		<About/>
+
+		<ImageDisplayer :imgSrc="profile" :displayHeight="200" headerTxt="Header Text" txt="Other Text"/>
+		<Competitions/>
+		
+		<ImageDisplayer :imgSrc="window" :displayHeight="200" headerTxt="Sponsors" txt="None of this would be possible without our sponsors"/>
+		<Sponsors/>
+
+		<ImageDisplayer :imgSrc="window" :displayHeight="200" headerTxt="Donate to CPP SAE Supermileage"/>
+		<Donate/>
+
+		<Contact/>
     </v-main>
   </v-app>
 </template>
@@ -26,6 +27,7 @@
 	import Donate         from './components/Donate';
 	import Contact        from './components/Contact';
 	import ImageDisplayer from './components/ImageDisplayer';
+	import Sponsors		  from './components/Sponsors'
 
 	export default 
 	{
@@ -40,6 +42,7 @@
 			Donate,
 			Contact,
 			ImageDisplayer,
+			Sponsors,
 		},
 
 		data: () => 
