@@ -3,13 +3,17 @@
     <Menu/>
     <v-main> 
       <Slideshow :imgs="[logo, carRender, window, profile, fiberGlass]"/> 
-      <About/>
+      <About id="idAbout"/>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
       <ImageDisplayer :imgSrc="profile" :displayHeight="300" headerTxt="Header Text" txt="Other Text"/>
       <br>
       <ImageDisplayer :imgSrc="window" headerTxt="No displayHeight set" txt="Defaults to 500"/>
-      <Competitions/>
-      <Donate/>
-      <Contact/>
+      <Competitions id="idCompetitions"/>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <Donate id="idDonate"/>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+      <Contact id="idContact"/>
+      <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
     </v-main>
   </v-app>
 </template>
