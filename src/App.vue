@@ -53,3 +53,12 @@
 		}),
 	};
 </script>
+
+<style>
+    p
+    {
+        text-align: center;
+        padding-left: 10vw;
+        padding-right: 10vw;
+    }
+</style>
