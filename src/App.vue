@@ -1,6 +1,7 @@
 <template>
   <v-app>
     <Menu/>
+  
     <v-main> 
       <Slideshow :imgs="[logo, carRender, window, profile, fiberGlass]"/> 
       <About/>
@@ -23,6 +24,7 @@
 	import Contact        from './components/Contact';
 	import ImageDisplayer from './components/ImageDisplayer';
 
+
 	export default 
 	{
 		name: 'App',
@@ -36,6 +38,7 @@
 			Donate,
 			Contact,
 			ImageDisplayer,
+			
 		},
 
 		data: () => 
