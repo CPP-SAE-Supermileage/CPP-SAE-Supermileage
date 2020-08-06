@@ -1,22 +1,18 @@
 <template>
 
-<v-div>
-
-    <!--This is the PopUp that hold Contact Form-->
-  <v-div class = "darkbackground" :style="{display: popUp}">
-    <div class = "whitebackground">
-      <div class="close" @click="closeOnClicked">
-        <h3>+</h3>
-      </div>
-
-      <ContactFormPopUp/>
-
-    </div>
-  </v-div>
-
+  
+  
 
 <v-card>
 
+    <!--Update the z-index upon click to make the form appear and disappear-->
+    <v-div class = "dark-background" :style="{ zIndex: zindex}">
+        <v-div class = "contact-form">
+          <v-div class = "close" @click="closeOnClicked" ><h4>+</h4></v-div>
+          <Form/>
+        </v-div>
+    </v-div>
+   
 
 <v-app-bar  ref="appBarRef"  app  color="primary"  dark>
 
@@ -82,12 +78,11 @@
 </v-card>
 
 
-</v-div>
+
 </template>
 
 <script>
-import ContactFormPopUp from './ContactFormPopUp';
-
+import Form from './Form';
 
 export default 
 {
@@ -97,7 +92,7 @@ export default
     ({
         displayHamburger: false,
         drawer: false,
-        popUp: "none",
+        zindex: -10,
     }),
     methods:
     {
@@ -120,16 +115,16 @@ export default
         },
         contactOnClicked()
         {
-          this.popUp = "flex";
+          this.zindex = 2;
         },
         closeOnClicked()
         {
-          this.popUp = "none";
+          this.zindex = -2;
         }
     },
     components: 
     {
-        ContactFormPopUp,
+        Form,
     },
 
   
@@ -152,40 +147,42 @@ export default
 
 
 <style>
-    .logo{width: 13em;}
-
-    .darkbackground{
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      background-color: rgba(0,0,0,0.7);
-      z-index: 20;
+    .logo{
+      width: 13em;
     }
-    .whitebackground{
-      left: 50%;
-      top: 20%;
-      position: relative;
-      width: 500px;
-      height: 640px;
-      display: inline-block;
+    form{
       background-color: #F7F7F7;
-      z-index:5;
+      padding-top: 1em;
+      padding-bottom: 1em;
+    }
+    .dark-background{
+      position: fixed;
+      top:0;
+      left:0;
+      bottom:0;
+      right:0;
+      background-color: rgba(0,0,0,0.5);
+    }
+    .contact-form{
+      position: absolute;
+      top:50%;
+      left: 50%;
       transform: translate(-50%,-50%);
-      text-align: center;
-      border-radius: 15px;
-      box-shadow: 0px 0p  x 12px rgba(0,0,0,0.3);
-      overflow-x: hidden;
-      overflow-y: auto;
+      width :500px;
 
     }
     .close{
-      height:20px;
-      margin:10px;
-    }
-    h3{
       cursor:pointer;
-      font-size: 30px;
-      float: right;
-      transform: translateY(-10px) rotateZ(45deg);
+      height:0.9em;
+      transform: translate(-30%,30%)
     }
+
+    .close h4{
+      font-size:1.5em;
+      transform: translateY(-30%) rotateZ(45deg);
+    }
+
+
+    
+    
 </style>
