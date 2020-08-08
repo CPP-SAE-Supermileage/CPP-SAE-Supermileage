@@ -9,7 +9,7 @@
 		<Slideshow /> 
 		<About id="idAbout"/>
 
-		<ImageDisplayer :imgSrc="profile" :displayHeight="200" headerTxt="Join the Team" txt="Become apart of something bigger than ourselves!"/>
+		<ImageDisplayer :imgSrc="members" :displayHeight="200" headerTxt="Join the Team" txt="Become apart of something bigger than ourselves!"/>
 		<Competitions id="idCompetitions"/>
 		<Members id="idMembers"/>
 		<ImageDisplayer id="idSponsors" :imgSrc="window" :displayHeight="200" headerTxt="Sponsors" txt="None of this would be possible without our sponsors"/>
@@ -59,6 +59,7 @@
 			logo:            require('@/assets/logo.png'),
 			profile:         require('@/assets/Profile.png'),
 			window:          require('@/assets/Window.png'),
+            members:         require('@/assets/parallax/members.png'),
 		}),
 	};
 </script>
