@@ -25,6 +25,7 @@
 	import Donate         from './components/Donate';
 	import Contact        from './components/Contact';
 	import ImageDisplayer from './components/ImageDisplayer';
+	
 
 
 	export default 

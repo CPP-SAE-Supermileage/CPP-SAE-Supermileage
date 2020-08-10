@@ -84,6 +84,9 @@
 <script>
 import Form from './Form';
 
+
+
+
 export default 
 {
 
@@ -116,15 +119,19 @@ export default
         contactOnClicked()
         {
           this.zindex = 2;
+          document.documentElement.style.overflow = 'hidden'
+          
         },
         closeOnClicked()
         {
           this.zindex = -2;
+          document.documentElement.style.overflow = 'auto'
         }
     },
     components: 
     {
         Form,
+       
     },
 
   

@@ -1,37 +1,44 @@
 <template>
-<v-form ref="form" v-model="valid" lazy-validation>
+<form @submit.prevent="submit">
 	<ul>
 	<li>
 	<v-text-field 
         v-model="name"
-        :rules="nameRules"
+        :error-messages="nameErrors"
         label="Name"
-
         required
+        @input="$v.name.$touch()"
+        @blur="$v.name.$touch()"
       ></v-text-field>
 	</li>
     <li>
       <v-text-field
         v-model="email"
-        :rules="emailRules"
+        :error-messages="emailErrors"
         label="E-mail"
         required
+        @input="$v.email.$touch()"
+        @blur="$v.email.$touch()"
       ></v-text-field>
     </li>
     <li>
       <v-text-field
         v-model="major"
-        :rules="majorRules"
+        :error-messages="majorErrors"
         label="Major"
         required
+        @input="$v.major.$touch()"
+        @blur="$v.major.$touch()"
       ></v-text-field>
     </li>
     <li>
       <v-text-field
         v-model="gradTerm"
-        :rules="gradRules"
+        :error-messages="termErrors"
         label="Graduation Term"
         required
+        @input="$v.gradTerm.$touch()"
+        @blur="$v.gradTerm.$touch()"
       ></v-text-field>
     </li>
     
@@ -82,37 +89,111 @@
         label="Areas of experience (optional)"
         ></v-textarea>
 
-        <v-btn>
-        Submit
-        </v-btn>
+        <v-btn class="mr-4" @click="submit">Submit</v-btn>
+        <v-btn class="mr-4" @click="clear">Clear</v-btn>
+        <p id = "submit-error">{{ submitMessage }}</p>
     </ul>
 
-</v-form>
+</form>
 </template>
 
 
 
 <script>
+const { validationMixin } = require('vuelidate')
+const { required, email } = require('vuelidate/lib/validators')
+
+
+
+
+
+
 export default 
 {
     name: "",
+    mixins: [validationMixin],
+   
+
     data: () =>
     ({
-        valid: true,
         name: '',
-        nameRules: [
-            v => !!v || 'Name is required', ],
         email: '',
-        emailRules: [
-            v => !!v || 'E-mail is required',
-            v => /.+@.+\..+/.test(v) || 'E-mail must be valid', ],
         major: '',
-        majorRules: [
-            v => !!v || 'Major is required', ],
         gradTerm: '',
-        gradRules: [
-            v => !!v || 'Graeduation term is required', ],
+        validName: false,
+        submitMessage: null,
     }),
+
+
+    validations: {
+        name: { 
+            required, 
+        },
+        email: { 
+            required, 
+            email 
+        },
+        major: { 
+            required 
+        },
+        gradTerm: {
+            required
+        },
+    },
+
+    computed: {
+        nameErrors () {
+          const errors = []
+          if (!this.$v.name.$dirty)
+            return errors
+          !this.$v.name.required && errors.push('Name is required.') 
+          return errors
+        },  
+        emailErrors () {
+          const errors = []
+          if (!this.$v.email.$dirty) 
+            return errors
+          !this.$v.email.email && errors.push('Must be valid e-mail')
+          !this.$v.email.required && errors.push('E-mail is required')
+          return errors
+        },
+        majorErrors () {
+          const errors = []
+          if (!this.$v.major.$dirty) 
+            return errors
+          !this.$v.major.required && errors.push('Major is required.')
+          return errors
+        }, 
+        termErrors () {
+          const errors = []
+          if (!this.$v.gradTerm.$dirty) 
+            return errors
+          !this.$v.gradTerm.required && errors.push('Graduation term is required.')
+          return errors
+        },
+    },
+
+    methods: {
+        submit() {
+            console.log('submit clicked')
+            this.$v.$touch()
+            if (this.$v.$invalid) {
+               this.submitMessage = "*Please fill out the form correctly."
+            } else{
+               this.submitMessage = null;
+            }
+         },
+         clear () {
+            this.$v.$reset()
+            this.name = ''
+            this.email = ''
+            this.major = ''
+            this.gradTerm = ''
+            this.submitMessage = null;
+        },
+    }
+
+
  }
 </script>
 
@@ -130,4 +211,11 @@ ul{
     position: absolute;
     width:90%;
 }
+#submit-error{
+    height:1.5em; 
+    padding-top:0.3em;
+    font-size:0.9em;
+    color: red;
+}
 </style>  
+   
