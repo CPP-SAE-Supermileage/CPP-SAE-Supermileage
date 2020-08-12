@@ -11,12 +11,12 @@
 
 		
 		<Competitions id="idCompetitions"/>
-        <ImageDisplayer id="idMembers" :imgSrc="'members.png'" :displayHeight="200" headerTxt="Join the Team" txt="Become part of something bigger than yourself!"/>
+        <ImageDisplayer id="idMembers" :imgSrc="'members.png'" :displayHeight="400" headerTxt="Join the Team" txt="Become part of something bigger than yourself!"/>
 		<Members/>
-		<ImageDisplayer id="idSponsors" :imgSrc="'sponsors.png'" :displayHeight="200" headerTxt="Sponsors" txt="None of this would be possible without our sponsors!"/>
+		<ImageDisplayer id="idSponsors" :imgSrc="'sponsors.png'" :displayHeight="400" headerTxt="Sponsors" txt="None of this would be possible without our sponsors!"/>
 		<Sponsors/>
 
-		<ImageDisplayer id="idDonate" :imgSrc="'window.png'" :displayHeight="200" headerTxt="Donate to CPP SAE Supermileage"/>
+		<ImageDisplayer id="idDonate" :imgSrc="'donate2.png'" :displayHeight="200" headerTxt="Donate to CPP SAE Supermileage"/>
 		<Donate/>
 
 		<Contact id="idContact"/>
