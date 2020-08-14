@@ -1,7 +1,7 @@
 <template>
   <v-container class="text-center" style="height:45vh;">
     <h2>Competitions</h2>
-    <ul>
+    <ul id = "competition-list">
       <li @click="autonomousClicked" :style="{ fontWeight: autoFont}">
         Autonomous
       </li>
@@ -70,16 +70,13 @@ export default
 </script>
 
 <style>
-  
   ul{
     list-style: none;
   }
-  li{
+  #competition-list li{
     cursor: pointer;
     display: inline-flex;
     margin-left: 1em;
     margin-right: 1em;
   }
-
-
 </style>
